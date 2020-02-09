@@ -1,0 +1,42 @@
+<div class="container-sm">
+    <diV class="row">
+    <div class="col-12 col-md-6">
+      <img src="{{col.photoUrl}}" width="200px" />
+    </div>
+
+    <div class="col-12 col-md-6">
+      <diV class="row mt-1">
+          <div class="col-6">Matricule</div>
+          <div class="col-6">{{col.matricule}}</div>
+      </diV>
+      <diV class="row mt-1">
+        <div class="col-6">Nom</div>
+        <div class="col-6">{{col.nom}}</div>
+      </diV>
+      <diV class="row mt-1">
+        <div class="col-6">Prénoms</div>
+        <div class="col-6">{{col.prenoms}}</div>
+      </diV>
+      <diV class="row mt-1">
+        <div class="col-6">Date de naissance</div>
+        <div class="col-6">{{col.dateDeNaissance}}</div>
+      </diV>
+      <diV class="row mt-1">
+        <div class="col-6">Email</div>
+        <div class="col-6">{{col.email}}</div>
+      </diV>
+    </div>
+  </diV>
+
+  <div class="row">
+    <div class="col-8">
+      <a href="#" (click)='creerCollegue()' >
+        Créer un nouveau collègue
+      </a>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-primary" (click)='modifierCollegue()'>Modifier</button>
+    </div>
+  </div>
+</div>
+
