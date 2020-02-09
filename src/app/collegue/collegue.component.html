@@ -1,41 +1,63 @@
 <div class="container-sm">
-    <diV class="row">
+    <div class="row">
     <div class="col-12 col-md-6">
-      <img src="{{col.photoUrl}}" width="200px" />
+      <img src={{col.photoUrl}} width="200px" />
     </div>
 
     <div class="col-12 col-md-6">
-      <diV class="row mt-1">
+      <div class="row mt-1">
           <div class="col-6">Matricule</div>
           <div class="col-6">{{col.matricule}}</div>
-      </diV>
-      <diV class="row mt-1">
+      </div>
+      <div class="row mt-1">
         <div class="col-6">Nom</div>
-        <div class="col-6">{{col.nom}}</div>
-      </diV>
-      <diV class="row mt-1">
+        <div class="col-6">{{col.nom | uppercase}}</div>
+      </div>
+      <div class="row mt-1">
         <div class="col-6">Prénoms</div>
         <div class="col-6">{{col.prenoms}}</div>
-      </diV>
-      <diV class="row mt-1">
+      </div>
+      <div class="row mt-1">
         <div class="col-6">Date de naissance</div>
-        <div class="col-6">{{col.dateDeNaissance}}</div>
-      </diV>
-      <diV class="row mt-1">
+        <div class="col-6">{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</div>
+      </div>
+      <div class="row mt-1" *ngIf= "!modifier; else saisieEmail" >
         <div class="col-6">Email</div>
         <div class="col-6">{{col.email}}</div>
-      </diV>
-    </div>
-  </diV>
+      </div>
+      <ng-template #saisieEmail>
+        <div class="row mt-1">
+          <div class="col-6">
+            <label for="email">Email</label>
+          </div>
+          <div class="col-6">
+            <input id="email" name="email" type="text" value={{col.email}} class='form-control' />
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col-6">
+            <label for="photoUrl">Photo URL</label>
+          </div>
+          <div class="col-6">
+            <input id="photoUrl" name="photoUrl" type="text" value={{col.photoUrl}} class='form-control' />
+          </div>
+        </div>
+      </ng-template>
 
-  <div class="row">
-    <div class="col-8">
+    </div>
+  </div>
+
+  <div class="row text-right">
+    <div class="col-8" [hidden]='modifier'>
       <a href="#" (click)='creerCollegue()' >
         Créer un nouveau collègue
       </a>
     </div>
-    <div class="col-4">
+    <div class="col-4" [hidden]='modifier'>
       <button class="btn btn-primary" (click)='modifierCollegue()'>Modifier</button>
+    </div>
+    <div class="col-4" [hidden]='!modifier'>
+      <button class="btn btn-primary">Valider</button>
     </div>
   </div>
 </div>

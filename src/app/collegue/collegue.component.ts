@@ -12,12 +12,15 @@ export class CollegueComponent implements OnInit {
 
   @Input() col: Collegue;
 
+  modifier: boolean;
+
   creerCollegue(){
     console.log('Créer un nouveau collègue');
   }
 
   modifierCollegue(){
     console.log('Modification du collègue');
+    this.modifier = true;
   }
 
   ngOnInit() {

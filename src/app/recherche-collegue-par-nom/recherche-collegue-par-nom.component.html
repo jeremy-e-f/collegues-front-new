@@ -1,0 +1,16 @@
+<div class="row mr-4">
+  <div class='col-5'>
+    <label for='champRecherche'>Recherche par nom</label>
+  </div>
+  <div class='col-5'>
+   <input id='champRecherche' name='champRecherche' type='text' class='form-control' />
+  </div>
+  <div class='col-2'>
+    <button class="btn btn-primary" (click)='rechercher()'>Rechercher</button>
+  </div>
+</div>
+<div class="row text-center mt-2">
+  <div class="col-12" *ngFor="let matricule of resultatMatricules">
+    {{matricule}}
+  </div>
+</div>
