@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-collegue',
@@ -8,17 +9,19 @@ import { Collegue } from '../models/Collegue';
 })
 export class CollegueComponent implements OnInit {
 
-  constructor() {}
+  constructor(private dataService: DataService) {
+    this.col = dataService.recupererCollegueCourant();
+  }
 
   @Input() col: Collegue;
 
   modifier: boolean;
 
-  creerCollegue(){
+  creerCollegue() {
     console.log('Créer un nouveau collègue');
   }
 
-  modifierCollegue(){
+  modifierCollegue() {
     console.log('Modification du collègue');
     this.modifier = true;
   }
